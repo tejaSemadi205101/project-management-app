@@ -1,0 +1,21 @@
+{
+  "name": "project-manage-app",
+  "version": "1.0.0",
+  "description": "learning backend by building project management app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "backend",
+    "web",
+    "developer",
+    "API"
+  ],
+  "author": "Teja Semadi Original",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "3.8.3"
+  }
+}
