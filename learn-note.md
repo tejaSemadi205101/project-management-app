@@ -12,3 +12,7 @@ membuat cluster pada databse mongodb, lalu menghubungkannya lewat env
 lalu membuat controler dan menghubungkannya melalui api respon
 lalu membuat route dna menghubungkannya dengan controller
 membuat requesthandler file untuk menghandle error dan menempatkannya di healthcheck controller  
+API endpoint struktur dan autentikasi 
+membuat user beserta middleware hook nya
+membuat kredensial token, generated access token, expiry token, temporary token, refresh token
+membuat fungsi mail sender untuk verifikasi dan reset email
