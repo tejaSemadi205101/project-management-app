@@ -109,7 +109,7 @@ userSchema.methods.generatedRefreshToken = function(){
 
 // membuat fitur untuk handle pembuatan token sementara
 // fungsinya seperti reset password dan verifikasi
-userSchema.methods.generatedTemporaryTOken = function(){
+userSchema.methods.generatedTemporaryToken = function(){
     const unHashedToken = crypto.randomBytes(32).toString('hex')
 
     const hashedToken = crypto.createHash('sha256').update(unHashedToken).digest('hex');
