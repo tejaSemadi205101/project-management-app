@@ -32,7 +32,7 @@ const sendEmail = async (options) => {
     }
 
     try {
-        await transporter.sendEmail(email)
+        await transporter.sendMail(email)
     } catch (error) {
         console.error('Cannot send email, make sure your Mail Trap is connected', error)
     }

@@ -16,3 +16,5 @@ API endpoint struktur dan autentikasi
 membuat user beserta middleware hook nya
 membuat kredensial token, generated access token, expiry token, temporary token, refresh token
 membuat fungsi mail sender untuk verifikasi dan reset email
+membuat fungsi buat user/daftar user 
+membuat routes signup
