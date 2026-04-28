@@ -8,9 +8,11 @@ export const validate = (req, res, next) =>{
     }
 
     const extractedErrors = [];
-    errors.array().map((err) =>extracedErrors.push({
+    errors.array().map((err) =>extractedErrors.push({
         [err.path] : err.msg}
     ));
 
-    throw new ApiError(400, 'Validation error', extracedErrors);
+    console.log("❌ VALIDATION FAILED:", JSON.stringify(extractedErrors, null, 2));
+
+    throw new ApiError(400, 'Validation error', extractedErrors);
 }

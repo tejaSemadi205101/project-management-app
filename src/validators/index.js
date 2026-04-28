@@ -6,7 +6,8 @@ const userRegisterValidation = () => {
         .trim()
         .notEmpty()
         .withMessage('Email is required')
-        .isEmail().withMessage('Email is invalid'),
+        .isEmail()
+        .withMessage('Email is invalid'),
 
         body('username')
         .trim()
@@ -34,4 +35,19 @@ const userRegisterValidation = () => {
     ] 
 } 
 
-export {userRegisterValidation}
+const userLoginValidation = () => {
+    return [
+        body('email')
+        .trim()
+        .notEmpty()
+        .isEmail()
+        .withMessage('Email is required'),
+
+        body('password')
+        .trim()
+        .notEmpty()
+        .withMessage('Password is required')
+    ]
+}
+
+export {userRegisterValidation, userLoginValidation}
