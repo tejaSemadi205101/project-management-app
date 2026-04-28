@@ -17,4 +17,6 @@ membuat user beserta middleware hook nya
 membuat kredensial token, generated access token, expiry token, temporary token, refresh token
 membuat fungsi mail sender untuk verifikasi dan reset email
 membuat fungsi buat user/daftar user 
-membuat routes signup
+membuat routes signup dan validator signup
+lakukan testing di postman untuk signup dan login
+lanjut membuat auth middleware dan fungsi logout
