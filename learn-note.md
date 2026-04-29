@@ -20,3 +20,5 @@ membuat fungsi buat user/daftar user
 membuat routes signup dan validator signup
 lakukan testing di postman untuk signup dan login
 lanjut membuat auth middleware dan fungsi logout
+membuat contorller untuk access user terkini email verifikasi, resend email verifikasi, resend access token,
+
