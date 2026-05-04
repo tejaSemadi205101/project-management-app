@@ -175,7 +175,7 @@ const resendEmailVerification = asyncHandler(async (req, res) =>{
         throw new ApiError(404, "User not found");
     }
 
-    if(!user.isUserVerified){
+    if(user.isUserVerified){
         throw new ApiError(400, "User is already verified");
     }
 
@@ -207,9 +207,9 @@ const resendAccessToken = asyncHandler(async (req, res) =>{
     }
 
     try {
-        const decodedToken =  jwt.verify(incomingRefreshToken, process.env.REFRESH_TOKEN_SECRET)
+        const decodedToken = await jwt.verify(incomingRefreshToken, process.env.REFRESH_TOKEN_SECRET)
 
-        const user = await User.findById(decodeToken?._id)
+        const user = await User.findById(decodedToken?._id)
 
         if (!user) {
             throw new ApiError(404, 'Invalid refresh token')
@@ -231,13 +231,14 @@ const resendAccessToken = asyncHandler(async (req, res) =>{
 
         return res
         .status(200)
-        .cookie('acccessToken', accessToken, options)
+        .cookie('accessToken', accessToken, options)
         .cookie('refreshToken', newRefreshToken, options)
         .json(
             new ApiResponse(200, {}, 'Access token refreshed successfully')
         )
 
     } catch (error) {
+        console.error("Refresh Token Error:", error);
         throw new ApiError(401, 'Invalid refresh token')
     }
 })
@@ -304,9 +305,9 @@ const resetForgetPasswordRequest = asyncHandler( async (req, res) =>{
 const changeCurrentPassword = asyncHandler( async (req, res) => {
     const {oldPassword, newPassword} = req.body
 
-    const user =  User.findById(req.user?._id)
+    const user = await User.findById(req.user?._id)
 
-    const isPasswordValid = user.userCorrectPassword(oldPassword)
+    const isPasswordValid = await user.userCorrectPassword(oldPassword)
 
     if (!isPasswordValid) {
         throw new ApiError(401, "Invalid password");
@@ -325,7 +326,8 @@ const changeCurrentPassword = asyncHandler( async (req, res) => {
 export {
     registerUser, 
     login, 
-    logoutUser, 
+    logoutUser,
+    resendAccessToken, 
     getCurrentUser, 
     verifyEmail, 
     resendEmailVerification,
