@@ -1,0 +1,22 @@
+import mongoose, { Schema } from 'mongoose';
+import { AvaibleUserRoles, UserRolesEnum } from '../src/utils/constans.js';
+
+const projectMemberSchema = new Schema({
+    user : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'User',
+        required : true
+    },
+    project : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Project',
+        required : true
+    },
+    role : {
+        type : String,
+        enum : AvaibleUserRoles,
+        default : UserRolesEnum.MEMBER
+    }
+}, {timestamps : true} )
+
+export const ProjectMember = mongoose.model('ProjectMember', projectMemberSchema)

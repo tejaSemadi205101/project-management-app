@@ -1,5 +1,7 @@
 ## What i learn today
 
+=== Tahap membuat fitur Auth ===
+
 pertama inisialisasi project pakai npm ini
 kedua inisialisasi package json,
 lalu atur prettier, git ignore, nodemon
