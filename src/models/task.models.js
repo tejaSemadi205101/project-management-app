@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { AvaibleTaskStatus, AvaibleTaskStatus } from '../utils/constans';
+import { AvaibleTaskStatus } from '../utils/constans.js';
 
-const taskSchema = new Schema({
+const taskSchema = new mongoose.Schema({
     title : {
         type : String,
         required : true,
@@ -17,12 +17,12 @@ const taskSchema = new Schema({
     },
 
     assignedTo : {
-        type : mongoose.Schema.TypesObjectId,
+        type : mongoose.Schema.Types.ObjectId,
         ref : 'User'
     },
 
     assignedBy : {
-        type : mongoose.Schema.TypesObjectId,
+        type : mongoose.Schema.Types.ObjectId,
         ref : 'User'
     },
 

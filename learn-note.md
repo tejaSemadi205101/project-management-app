@@ -22,5 +22,8 @@ membuat fungsi buat user/daftar user
 membuat routes signup dan validator signup
 lakukan testing di postman untuk signup dan login
 lanjut membuat auth middleware dan fungsi logout
-membuat contorller untuk access user terkini email verifikasi, resend email verifikasi, resend access token,
+membuat contorller untuk access user terkini email verifikasi, resend email verifikasi, resend access token
+membuat models untuk project, task, dll
+membuat controller berdasarkan kemampuan/fitur dari app
+menggunakan metode agregation pipeline untuk saling menghubungkan antar data dengan menggunakan konsep relasi antar database,
 

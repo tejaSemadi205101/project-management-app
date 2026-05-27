@@ -1,4 +1,5 @@
-import {body} from 'express-validator'
+import { body } from 'express-validator'
+import { AvaibleUserRoles } from '../utils/constans.js'
 
 const userRegisterValidation = () => {
     return [
@@ -85,10 +86,88 @@ const userResetPasswordValidation = () => {
     ]
 }
 
+const createProjectValidation = () =>{
+    return [
+        body('projectName')
+        .trim()
+        .notEmpty()
+        .withMessage('Project name is required')
+        .isLength({min : 4})
+        .withMessage('Project name must be at least 4 characters'),
+
+        body('projectDescription')
+        .trim()
+        .optional()
+    ]
+}
+
+const addMembertoProjectValidation = () =>{
+    return [
+        body('email')
+        .trim()
+        .notEmpty()
+        .withMessage('Email is required')
+        .isEmail()
+        .withMessage('Email is invalid'),
+
+        body('role')
+        .trim()
+        .notEmpty()
+        .withMessage
+    ]
+}
+
+const createTaskValidation = () =>{
+    return [
+        body('title')
+        .trim()
+        .notEmpty()
+        .withMessage('Title is required'),
+
+        body('description')
+        .trim()
+        .optional(),
+
+        body('status')
+        .trim()
+        .notEmpty()
+        .withMessage('Status is required'),
+
+        body('assignedTo')
+        .trim()
+        .optional(),
+
+        body('attachments')
+        .trim()
+        .optional()
+    ]
+}
+
+const createSubtaskValidation = () =>{
+    return [
+        body('title')
+        .trim()
+        .notEmpty()
+        .withMessage('Title is required'),
+
+        body('description')
+        .trim()
+        .optional(),
+
+        body('isCompleted')
+        .trim()
+        .optional()
+    ]
+}
+
 export {
     userRegisterValidation, 
     userLoginValidation, 
     changeCurrentPasswordValidation,
     userForgetPasswordValidation,
-    userResetPasswordValidation
+    userResetPasswordValidation,
+    createProjectValidation,
+    addMembertoProjectValidation,
+    createTaskValidation,
+    createSubtaskValidation
 }
