@@ -114,3 +114,10 @@ const getProjectNotesById = asyncHandler(async(req, res) => {
     .status(200)
     .json(new ApiResponse(200, note, "Notes fetched successfully"))
 })
+
+export {
+  createProjectNotes,
+  updatePeojectNotes,
+  deleteProjectNotes,
+  getProjectNotes,
+  getProjectNotesById}

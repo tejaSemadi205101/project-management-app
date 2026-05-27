@@ -160,6 +160,15 @@ const createSubtaskValidation = () =>{
     ]
 }
 
+const createNotesValidation = () =>{
+    return [
+        body('notes')
+        .trim()
+        .notEmpty()
+        .withMessage('Notes is required'),
+    ]
+}
+
 export {
     userRegisterValidation, 
     userLoginValidation, 
@@ -169,5 +178,6 @@ export {
     createProjectValidation,
     addMembertoProjectValidation,
     createTaskValidation,
-    createSubtaskValidation
+    createSubtaskValidation,
+    createNotesValidation
 }
